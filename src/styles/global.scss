@@ -1,0 +1,38 @@
+:root {
+  --white: #fff;
+  --gray-50: #e1e1e1;
+  --gray-300: #a8a8b3;
+  --gray-900: #121212;
+  --cyan-500: #61dafd;
+  --yellow-500: #eba417;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--gray-900);
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
