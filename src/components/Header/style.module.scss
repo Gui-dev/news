@@ -1,0 +1,55 @@
+.headerContainer {
+  height: 7rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  height: 7rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  nav {
+    display: flex;
+    align-items: center;
+    height: 7rem;
+    margin-left: 8rem;
+
+    a {
+      position: relative;
+      display: inline-block;
+      font-size: 1.6rem;
+      color: var(--gray-300);
+      line-height: 7rem;
+      padding: 0 0 1rem;
+      height: 7rem;
+      transition: color 0.2s;
+
+      & + a {
+        margin-left: 5rem;
+      }
+
+      &:hover {
+        color: var(--white);
+      }
+
+      &.active {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      &.active::after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        height: 0.3rem;
+        width: 100%;
+        background-color: var(--yellow-500);
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+    }
+  }
+}
