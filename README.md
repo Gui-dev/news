@@ -1,5 +1,5 @@
 <div align="center">
- <img src="src/assets/images/logo.svg" width="110"/>
+ <img src="public/images/logo.svg" width="110"/>
 </div>
 
 <!-- <p>O <strong>money</strong> é uma aplicação de controle financeiro </p>
