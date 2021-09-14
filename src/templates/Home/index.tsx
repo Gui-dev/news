@@ -1,3 +1,4 @@
+import { SubscribeButton } from 'components/SubscribeButton'
 import styles from './style.module.scss'
 
 export const HomeTemplate = () => {
@@ -10,6 +11,8 @@ export const HomeTemplate = () => {
           Get access to all the publications <br />
           <span>for $9.90 month</span>
         </p>
+
+        <SubscribeButton />
       </section>
 
       <img src="/images/avatar.svg" alt="Girl coding on a table" />
