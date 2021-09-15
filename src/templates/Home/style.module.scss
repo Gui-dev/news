@@ -41,4 +41,14 @@
   button {
     margin-top: 4rem;
   }
+
+  img {
+    max-width: 80%;
+  }
+
+  @media (min-width: 720px) {
+    img {
+      max-width: 100%;
+    }
+  }
 }
