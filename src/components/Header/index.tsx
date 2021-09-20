@@ -1,5 +1,6 @@
-import { SignInButton } from 'components/SignInButton'
+import Link from 'next/link'
 
+import { SignInButton } from 'components/SignInButton'
 import styles from './style.module.scss'
 
 export const Header = () => {
@@ -8,8 +9,13 @@ export const Header = () => {
       <div className={ styles.headerContent }>
         <img src="/images/logo.svg" alt="Uma igmagem escrito News" title="News"/>
         <nav>
-          <a href="#" className={ styles.active }>Home</a>
-          <a href="#">Posts</a>
+          <Link href="/">
+            <a title="Home" className={ styles.active }>Home</a>
+          </Link>
+
+          <Link href="/posts">
+            <a title="Posts">Posts</a>
+          </Link>
         </nav>
 
         <SignInButton />
