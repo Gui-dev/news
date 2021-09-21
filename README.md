@@ -46,7 +46,7 @@ Second, run the development server:
 yarn dev
 ```
 
-Third, run the development server:
+Third, run stripe:
 
 ```bash
 stripe listen --forward-to localhost:3000/api/webhooks
