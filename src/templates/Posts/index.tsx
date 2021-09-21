@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 import styles from './style.module.scss'
 
@@ -9,11 +10,11 @@ type PostProps = {
   updatedAt: string
 }
 
-type PostsProps = {
+type PostsTemplateProps = {
   posts: PostProps[]
 }
 
-export const Posts = ({ posts }: PostsProps) => {
+export const PostsTemplate = ({ posts }: PostsTemplateProps) => {
   return (
     <>
       <Head>
@@ -26,11 +27,13 @@ export const Posts = ({ posts }: PostsProps) => {
           { posts.map(post => {
             return (
               <article key={ String(post.slug) }>
-                <a href={`/posts/${post.slug}`}>
-                  <time>{ post.updatedAt }</time>
-                  <h1>{ post.title }</h1>
-                  <p>{ post.excert }</p>
-                </a>
+                <Link href={`/posts/${post.slug}`}>
+                  <a>
+                    <time>{ post.updatedAt }</time>
+                    <h1>{ post.title }</h1>
+                    <p>{ post.excert }</p>
+                  </a>
+                </Link>
               </article>
             )
           }) }

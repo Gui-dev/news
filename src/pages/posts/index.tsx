@@ -3,7 +3,7 @@ import Prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
 
 import { getPrismicClient } from 'services/prismic'
-import { Posts } from 'templates/Posts'
+import { PostsTemplate } from 'templates/Posts'
 import { formatDate } from 'utils/formatDate'
 
 type PostProps = {
@@ -19,7 +19,7 @@ type PostsProps = {
 
 const posts = ({ posts }: PostsProps) => {
   return (
-    <Posts posts={ posts }/>
+    <PostsTemplate posts={ posts }/>
   )
 }
 
