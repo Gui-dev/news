@@ -24,7 +24,7 @@ export const PostsTemplate = ({ posts }: PostsTemplateProps) => {
       <main className={ styles.container }>
         <div className={ styles.posts }>
 
-          { posts.map(post => {
+          { posts.map((post: PostProps) => {
             return (
               <article key={ String(post.slug) }>
                 <Link href={`/posts/${post.slug}`}>
