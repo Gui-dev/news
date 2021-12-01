@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 type HomeTemplateProps = {
   product: {
     priceId: string
-    amount: number
+    amount: string
   }
 }
 
@@ -19,7 +19,7 @@ export const HomeTemplate = ({ product }: HomeTemplateProps) => {
           <span>for { product.amount } month</span>
         </p>
 
-        <SubscribeButton priceId={ product.priceId }/>
+        <SubscribeButton />
       </section>
 
       <img src="/images/avatar.svg" alt="Girl coding on a table" />

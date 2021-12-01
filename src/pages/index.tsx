@@ -8,7 +8,7 @@ import { HomeTemplate } from 'templates/Home'
 type HomeProps = {
   product: {
     priceId: string
-    amount: number
+    amount: string
   }
 }
 
