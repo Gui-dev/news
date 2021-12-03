@@ -4,12 +4,12 @@ import { mocked } from 'ts-jest/utils'
 
 import { PostTemplate } from '..'
 import { getServerSideProps } from '../../../pages/posts/[slug]'
-// import { getPrismicClient } from '../../../services/prismic'
+import { getPrismicClient } from '../../../services/prismic'
 
 const post = {
   slug: 'fake-post',
   title: 'fake-title',
-  content: 'fake-content',
+  content: '<p>fake-content</p>',
   updatedAt: '12-02-2021'
 }
 jest.mock('next-auth/client')
@@ -44,6 +44,47 @@ describe('<PostTemplate />', () => {
         redirect: expect.objectContaining({
           destination: '/'
         })
+      })
+    )
+  })
+
+  it('should loads initial datas', async () => {
+    const getSessionMocked = mocked(getSession)
+    const getPrismicClientMocked = mocked(getPrismicClient)
+
+    getSessionMocked.mockResolvedValueOnce({
+      activeSubscription: 'fake-active-subscription'
+    })
+
+    getPrismicClientMocked.mockReturnValueOnce({
+      getByUID: jest.fn().mockResolvedValueOnce({
+        data: {
+          title: [{ type: 'heading', text: 'fake-title' }],
+          content: [{ type: 'paragraph', text: 'fake-content' }]
+        },
+        last_publication_date: '12-03-2021'
+      })
+    } as any)
+
+    const response = await getServerSideProps({
+      req: {
+        cookies: {}
+      },
+      params: {
+        slug: 'fake-post'
+      }
+    } as any)
+
+    expect(response).toEqual(
+      expect.objectContaining({
+        props: {
+          post: {
+            slug: 'fake-post',
+            title: 'fake-title',
+            content: '<p>fake-content</p>',
+            updatedAt: '03 de dezembro de 2021'
+          }
+        }
       })
     )
   })
